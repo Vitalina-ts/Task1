@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+}
+
+.traffic-light {
+  width: 100px;
+  background: #222;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.light {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #444;
+  opacity: 0.3;
+}
+
+/* Анімація: при наведенні — лампи загораються по черзі */
+.traffic-light:hover .red {
+  animation: redOn 3s infinite;
+}
+
+.traffic-light:hover .yellow {
+  animation: yellowOn 3s infinite;
+}
+
+.traffic-light:hover .green {
+  animation: greenOn 3s infinite;
+}
+
+/* Червона: 0–1с */
+@keyframes redOn {
+  0%, 100% { background: red; opacity: 1; }
+  33.33%, 100% { background: #444; opacity: 0.3; }
+}
+
+/* Жовта: 1–2с */
+@keyframes yellowOn {
+  0%, 33.33% { background: #444; opacity: 0.3; }
+  33.34%, 66.66% { background: yellow; opacity: 1; }
+  66.67%, 100% { background: #444; opacity: 0.3; }
+}
+
+/* Зелена: 2–3с */
+@keyframes greenOn {
+  0%, 66.66% { background: #444; opacity: 0.3; }
+  66.67%, 100% { background: limegreen; opacity: 1; }
+}
