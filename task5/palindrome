@@ -1,0 +1,13 @@
+function isPalindrome(str) {
+    // Видаляємо всі пробіли, знаки пунктуації, робимо рядок нижнього регістру
+    let cleanStr = str.toLowerCase().replace(/[\s\W_]+/g, '');
+    // Перевіряємо, чи однаковий рядок і його перевернута версія
+    let reversedStr = cleanStr.split('').reverse().join('');
+    return cleanStr === reversedStr;
+}
+
+// Приклади
+console.log(isPalindrome("Racecar")); // true
+console.log(isPalindrome("А роза упала на лапу Азора")); // true
+console.log(isPalindrome("Hello")); // false
+console.log(isPalindrome("Казак")); // true
